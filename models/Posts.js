@@ -35,6 +35,7 @@ Comment.init(
     {
         id:{
             type: DataTypes.INTEGER,
+            primaryKey: true,
             allowNull: false,
         },
         desc:{
@@ -52,4 +53,4 @@ Comment.init(
 Post.hasMany(Comment);
 Comment.belongsTo(Post);
 
-module.exports = Posts, Comment; 
+module.exports = {Post, Comment}; 
