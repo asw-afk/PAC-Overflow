@@ -1,13 +1,19 @@
 // requiring packages
+
+const express = require('express');
+const sequelize = require("./config/connection")
+const routes = require("./controllers")
+
 const path = require('path');
-const express = require("express");
+
 //const session = require('express-session');
 const {clog} = require('./utils/clogs.js')
-const sequelize = require("./config/connection.js");
-//const routes= require('./controllers')
+
+
 const exphbs = require("express-handlebars");
 
 //const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 
 // initializing the port and app
 const PORT = process.env.PORT || 3001;
@@ -28,7 +34,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use(routes);
+
+// use this for routing
+app.use(routes);
+
+
 
 // Sync datbase with server
 sequelize.sync({ force: false }).then(() => {
