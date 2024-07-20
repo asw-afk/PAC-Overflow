@@ -1,0 +1,21 @@
+
+{{#each Posts as |post|}}
+    <div class="posts col-md-4">
+
+        {{!-- Post titles --}}
+        <p>
+            <h2>
+            {{post.id}}
+            {{post.post_title}}
+            </h2>
+        </p>
+    </div>
+
+    {{!-- A short description for the post. For longer posts it must be cut off
+        At a point to be determined later. --}}
+    <p>
+        {{post.post_desc}}
+    </p>
+    {{/each}}
+
+</div>
