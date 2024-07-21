@@ -3,7 +3,7 @@ const bcrypt =require("bcrypt");
 const User = require("../../models/User");
 
 // post request for Creating new user
-router.post('/', async(req, res) =>{
+router.post('/signup', async(req, res) =>{
     try{
         console.log("I am here");
         const newUser = req.body;
@@ -13,7 +13,7 @@ router.post('/', async(req, res) =>{
         // after hashing the password create and store the new user
         console.log(newUser);
         const user = await User.create(newUser);
-        res.status(200).json(user);
+        res.status(200).json({message:"user created successfully"});
 
     }catch(err){
         res.status(400).json(err)
@@ -49,4 +49,20 @@ router.post("/login", async(req,res) =>{
    
     }
    })
+   //********************************Get request  */
+   // full api: /api/users/
+router.get("/login", (req, res)=>{
+    res.render("login")
+})
+router.get("/signup", (req, res)=>{
+    res.render("signup")
+})
+router.get("/post", (req, res)=>{
+    res.render("post")
+})
+router.get("/homepage", (req, res)=>{
+    res.render("homepage")
+})
+
+
 module.exports = router;
