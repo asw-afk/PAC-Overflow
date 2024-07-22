@@ -3,7 +3,7 @@
 const express = require('express');
 const sequelize = require("./config/connection")
 const routes = require("./controllers")
-
+const model = require("./models/index.js")
 const path = require('path');
 
 //const session = require('express-session');

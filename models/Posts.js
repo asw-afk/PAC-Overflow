@@ -15,9 +15,19 @@ Post.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        desc:{
+        body:{
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        votes:{
+            type: DataTypes.INTEGER,
+            allowNull: true 
+        },
+        post_id:{
+           type: DataTypes.INTEGER,
+           references:{
+            model:"post",
+           }
         }
     },
     {
@@ -28,29 +38,4 @@ Post.init(
     }
 );
 
-
-class Comment extends Model{};
-
-Comment.init(
-    {
-        id:{
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            allowNull: false,
-        },
-        desc:{
-            type: DataTypes.STRING,
-            allowNull: false,
-        }
-    },
-    {
-        sequelize,
-        freezeTableName: true,
-        underscored: true,
-    }
-);
-
-Post.hasMany(Comment);
-Comment.belongsTo(Post);
-
-module.exports = {Post, Comment}; 
+module.exports = {Post}; 
