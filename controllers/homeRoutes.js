@@ -24,8 +24,8 @@ router.post ('/', async (req, res) => {
     }
 })
 
-router.get ('/', async (req, res) => {
-   
+router.get ('/', (req, res) => {
+   res.render('homepage');
 });
 
 module.exports = router;
