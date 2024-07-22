@@ -1,16 +1,25 @@
-<div>
-
-    <form>
-        <input type="text" class="username-login">
-
-        <input type="text" class="password-login">
-
+<div class="login row">
+    <form class="form login-form ">
+       <h2 class="login_header">Login</h2>
+       
+      <div class="form-group ">
+        <label for="email-login">email:</label>
+        <input class="form-input form-control" type="text" id="email-login" />
+      </div>
+      <div class="form-group ">
+        <label for="password-login">password:</label>
+        <input class="form-input form-control" type="password" id="password-login" />
+       
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">login</button>
+      </div>
+   <div  class="signup">
+        <span>Not registerd:</span><a class="ps-1" id="register" href="/api/user/signup">Singup</a> 
+      
+   </div>
     </form>
-    
-    <div>
-        <p class="sign-up-transfer">Sign Up</p>
-    </div>
-
-    <div> <input type="button" class="submit-login">Submit</input></div>
-
+ 
 </div>
+
+<script src="./js/login.js"></script>

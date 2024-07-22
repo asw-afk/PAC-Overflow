@@ -1,0 +1,39 @@
+.login{
+    display: flex;
+    width: 80%;
+    padding: 10px;
+    justify-content: center;
+  }
+  .signup{
+    display: flex;
+    width: 80%;
+    padding: 10px;
+    justify-content: center;
+  }
+  
+  .login-form{
+    display: block;
+    width: 50%;
+    justify-content: cetner;
+    border-radius: 25px;
+  }
+  
+  .signup-form{
+    display: block;
+    width: 50%;
+    justify-content: cetner;
+    border-radius: 25px;
+  }
+  
+  .login_header{
+    align-self: center;
+  }
+  .form-group{
+    display: block;
+    justify-content: center;
+    padding: 10px;
+  }
+  
+  .signup{
+    display: inline;
+  }
