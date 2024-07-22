@@ -1,12 +1,27 @@
+.main{
+  display: flex;
+  width: 100%;
+  margin:80px;
+  /* height: 60vh; */
+  /* margin-top:200px; */
+  justify-content: space-between;
+}
+
+/* section that has the video in the login */
+.section1{
+  width: 45%;
+  padding-left:60px;
+}
+
+/* section that has login in the login page */
+.section2{
+  width: 45%;
+  margin-left: 0px;
+  /* background-color: red; */
+}
+
 .login{
     display: flex;
-    width: 80%;
-    padding: 10px;
-    justify-content: center;
-  }
-  .signup{
-    display: flex;
-    width: 80%;
     padding: 10px;
     justify-content: center;
   }
@@ -17,14 +32,6 @@
     justify-content: cetner;
     border-radius: 25px;
   }
-  
-  .signup-form{
-    display: block;
-    width: 50%;
-    justify-content: cetner;
-    border-radius: 25px;
-  }
-  
   .login_header{
     align-self: center;
   }
@@ -34,6 +41,8 @@
     padding: 10px;
   }
   
-  .signup{
+  .signup-link{
     display: inline;
   }
+  
+
