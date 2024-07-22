@@ -5,8 +5,8 @@ const bcrypt = require('bcrypt');
 
    
 
-router.get ('/', async (req, res) => {
-   
+router.get ('/', (req, res) => {
+   res.render('homepage');
 });
 
 module.exports = router;
