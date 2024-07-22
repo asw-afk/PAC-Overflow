@@ -1,6 +1,8 @@
 :root {
     --dark: #393832; 
-    --body: #e0e5ee;
+
+    --body: #ced9ee;
+
   }
 
   /* body css */
@@ -27,7 +29,7 @@
     a{
       color: white;
       text-decoration: none;
-      padding-top: 9px;  
+
      }
   }
 
@@ -58,7 +60,10 @@
     background-color: #4a4944;
     border-radius: 25px;
     padding-left:10px;
-    color:white;  
+
+    color:white;
+    
+
   }
   
   main {
@@ -68,11 +73,11 @@
   }
   
  
-  /* nav {
+  nav {
     display: flex;
     background-color: var(--secondary);
-  } */
- 
+  }
+
   
   /* LAYOUT */
   .container {
