@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
     background-color: var(--body);
   }
   
@@ -54,10 +54,10 @@
   }
   /* for dropdown in navigation */
   #dropdown{
-    width:180px;
+    width:200px;
     background-color: #4a4944;
     border-radius: 25px;
-    padding-left:0px;
+    padding-left:10px;
     color:white;
     
   }
