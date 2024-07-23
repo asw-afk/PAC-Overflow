@@ -51,7 +51,7 @@ app.use(routes);
 
 
 // Sync datbase with server
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
     console.log(`listening at port ${PORT}`);
   });

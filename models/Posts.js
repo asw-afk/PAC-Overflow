@@ -1,5 +1,8 @@
 const {Model, DataType, DataTypes}= require("sequelize");
 const sequelize = require("../config/connection");
+const User = require('./User');
+const Comments = require('./Comment')
+
 
 class Post extends Model{};
 
@@ -12,8 +15,12 @@ Post.init(
             autoIncrement: true
         },
         title: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
+        },
+        game:{
+         type: DataTypes.STRING,
+         allowNull: false,
         },
         body:{
             type: DataTypes.STRING,
@@ -21,14 +28,15 @@ Post.init(
         },
         votes:{
             type: DataTypes.INTEGER,
-            allowNull: true 
+            allowNull: false 
         },
-        post_id:{
-           type: DataTypes.INTEGER,
-           references:{
-            model:"post",
-           }
-        }
+        user_id:{
+            type: DataTypes.INTEGER,
+            references:{
+             model:"user",
+             key:"id"
+            }
+         },
     },
     {
         sequelize,
@@ -38,4 +46,4 @@ Post.init(
     }
 );
 
-module.exports = {Post}; 
+module.exports = Post; 

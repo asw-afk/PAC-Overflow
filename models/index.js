@@ -1,7 +1,9 @@
 const User = require('./User');
-const Posts = require('./Posts');
-const Post =Posts.Post//not sure why but class 'Post' cannot be found unless i put this. comment appears without though
-//establishes parent(Post)/child(Comment) relationship
+const Post = require('./Posts');
+const Comment = require('./Comment')
+
+// gives Comment table access to Post_id
+// even though visually comments look like the child element of a post, the comments will be retreived from the database by their id+the id of the post they were created on
 Post.hasMany(Comment,{
     foreignKey:'post_id',
     onDelete: 'CASCADE',
@@ -9,5 +11,23 @@ Post.hasMany(Comment,{
 Comment.belongsTo(Post,{
     foreignKey:'post_id',
 });
+//gives Comments table access to user_id
+Post.hasOne(User,{
+    foreignKey:'post_id',
+    onDelete: 'CASCADE',
+});
 
-module.exports = { User, Posts };
+User.belongsTo(Post,{
+    foreignKey:'post_id',
+});
+//gives Comments table access to user_id
+Comment.hasOne(User,{
+    foreignKey:'user_id',
+    onDelete: 'CASCADE',
+});
+
+User.belongsTo(Comment,{
+    foreignKey:'user_id',
+});
+
+module.exports = { User, Post, Comment };
