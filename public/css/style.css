@@ -73,10 +73,10 @@
   }
   
  
-  nav {
+  /* nav {
     display: flex;
     background-color: var(--secondary);
-  }
+  } */
 
   
   /* LAYOUT */
@@ -85,5 +85,9 @@
     flex-flow: column wrap;
     align-content: flex-start;
     align-items: center;
+  }
+
+  .success{
+    color: green;
   }
   
