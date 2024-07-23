@@ -1,34 +1,24 @@
 const {Model, DataType, DataTypes}= require("sequelize");
 const sequelize = require("../config/connection");
 const User = require('./User');
-const Comments = require('./Comment')
+const Post = require('./Posts');
 
+class Comment extends Model{};
 
-class Post extends Model{};
-
-Post.init(
+Comment.init(
     {
         id:{
             type: DataTypes.INTEGER,
-            allowNull: false,
             primaryKey: true,
-            autoIncrement: true
-        },
-        title: {
-            type: DataTypes.STRING,
             allowNull: false,
-        },
-        game:{
-         type: DataTypes.STRING,
-         allowNull: false,
         },
         body:{
             type: DataTypes.STRING,
             allowNull: false,
         },
         votes:{
-            type: DataTypes.INTEGER,
-            allowNull: false 
+            type:DataTypes.INTEGER,
+            allowNull:true,
         },
         user_id:{
             type: DataTypes.INTEGER,
@@ -37,13 +27,21 @@ Post.init(
              key:"id"
             }
          },
+        post_id:{
+            type: DataTypes.INTEGER,
+            references:{
+             model:"post",
+             key:"id"
+            }
+         }
     },
     {
         sequelize,
         freezeTableName: true,
-        underscored:true,
-        modelName:'post'
+        underscored: true,
+        modelName:'comment'
     }
 );
 
-module.exports = Post; 
+
+module.exports = Comment; 

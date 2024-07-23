@@ -1,10 +1,9 @@
 // requiring packages
 
 const express = require('express');
-const sequelize = require("./config/connection");
-const routes = require("./controllers");
-const helpers = require('./utils/helpers');
-
+const sequelize = require("./config/connection")
+const routes = require("./controllers")
+const model = require("./models/index.js")
 const path = require('path');
 
 const session = require('express-session');
@@ -52,7 +51,7 @@ app.use(routes);
 
 
 // Sync datbase with server
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
     console.log(`listening at port ${PORT}`);
   });
