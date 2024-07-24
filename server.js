@@ -42,7 +42,7 @@ const sess = {
 
 app.use(clog);
 
-app.use(session);
+app.use(session(sess));
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', "handlebars");
