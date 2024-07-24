@@ -23,7 +23,7 @@ router.post("/signup", async (req, res) => {
 // full url api/users/login
 router.post("/login", async (req, res) => {
   try {
-    // assigning the user login to userLoginIngo
+    // assigning the user login to userLoginInfo
     const userLoginInfo = await User.findOne({
       where: { email: req.body.email },
     });

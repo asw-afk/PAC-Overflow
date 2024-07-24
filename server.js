@@ -42,7 +42,7 @@ const sess = {
 
 app.use(clog);
 
-app.use(session);
+app.use(session(sess));
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', "handlebars");
@@ -61,7 +61,7 @@ app.use(routes);
 
 
 // Sync datbase with server
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => {
     console.log(`listening at port ${PORT}`);
   });
