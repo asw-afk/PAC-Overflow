@@ -26,11 +26,13 @@ router.post('/signup', async(req, res) =>{
 router.post("/login", async(req,res) =>{
     try{
        // assigning the user login to userLoginIngo
+       console.log(req.body.email);
        const userLoginInfo = await User.findOne({where:{email: req.body.email}});
+       console.log(userLoginInfo);
    
        // checking if the user inputed data, if no info return erorr with message
        if(!userLoginInfo){
-           res.status(404).json({message: "login failed: please enter your login info"});
+          return res.status(404).json({message: "login failed: please enter your login info"});
        };
    
        // if the usre has all login info check if the password correct
@@ -38,8 +40,7 @@ router.post("/login", async(req,res) =>{
    
        // if the passwod does not match the user password in database 
        if(!isValidPassword){
-           res.status(400).json({message:'password is invalid'});
-           return;
+         return  res.status(400).json({message:'password is invalid'})
        }
    
        // if the login infor matched the one in database, allow user to login in
