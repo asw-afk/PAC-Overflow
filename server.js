@@ -6,24 +6,24 @@ const routes = require("./controllers")
 const model = require("./models/index.js")
 const path = require('path');
 
-//const session = require('express-session');
+const session = require('express-session');
 const {clog} = require('./utils/clogs.js');
 
 
 const exphbs = require("express-handlebars");
 
 
-//const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-// creating the SequlizeStore 
+//creating the SequlizeStore 
 
-// const sess = {
-//   secret: 'You guys rock!',
-//   store: new SeqelizeStore({
-//     db: sequelize,
-//   }),
+const sess = {
+  secret: 'You guys rock!',
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
 
-// }
+}
 
 // initializing the port and app
 const PORT = process.env.PORT || 3001;
