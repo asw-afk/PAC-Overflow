@@ -42,3 +42,9 @@ User.init(
     }
 );
 module.exports= User;
+
+// "title":"er",
+// "game":"oly@groobly.com",
+// "body": "123456789",
+// "votes":3,
+// "user_id":"1"
