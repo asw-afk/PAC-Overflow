@@ -8,7 +8,7 @@ router.post('/newPost', async (req,res) => {
         title: req.body.title,
         game: req.body.game,
         body: req.body.body,
-        votes: req.body.votes,//this is temporary, actual value will be an INT 
+        votes: req.body.votes,
         user_id:req.body.user_id
     });
       res.status(200).json({message:"Post Post Posting Post"});
