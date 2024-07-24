@@ -1,4 +1,4 @@
-const {Model, DataType, DataTypes}= require("sequelize");
+const {Model, DataTypes}= require("sequelize");
 const sequelize = require("../config/connection");
 const User = require('./User');
 const Post = require('./Posts');
@@ -12,6 +12,7 @@ Comment.init(
             primaryKey: true,
             allowNull: false,
             autoIncrement:true,
+
         },
         body:{
             type: DataTypes.STRING,
@@ -19,7 +20,7 @@ Comment.init(
         },
         votes:{
             type:DataTypes.INTEGER,
-            allowNull:true,
+            allowNull:false,
         },
         user_id:{
             type: DataTypes.INTEGER,
@@ -46,3 +47,8 @@ Comment.init(
 
 
 module.exports = Comment; 
+
+// "body":"isdfsdfsdf",
+// "votes":2,
+// "user_id": 1,
+// "post_id":1

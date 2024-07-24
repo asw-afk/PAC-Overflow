@@ -1,3 +1,6 @@
+// gives Comment table access to Post_id
+// even though visually comments look like the child element of a post, the comments will be retreived from the database by their id+the id of the post they were created on
+
 const User = require('./User');
 const Post = require('./Posts');
 const Comment = require('./Comment')
