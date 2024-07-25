@@ -1,6 +1,11 @@
 <div class="posts-list">
+    {{#if logged_in}}
     <h1>You have logged in to your account</h1>
+    {{else}}
+    <h1>You're not logged in</h1>
+    {{/if}}
 <div class="post-title">
+   
     {{post_title}}
 </div>
 
