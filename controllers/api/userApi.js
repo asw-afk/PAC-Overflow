@@ -30,10 +30,10 @@ router.post("/login", async (req, res) => {
 
     // checking if the user inputed data, if no info return error with message
     if (!userLoginInfo) {
-      res
+      return res
         .status(404)
         .json({ message: "login failed: please enter your login info" });
-    }
+    } 
 
     // if the user has all login info check if the password correct
     const isValidPassword = await bcrypt.compare(
@@ -48,14 +48,15 @@ router.post("/login", async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.user_id = userLoginInfo.id;
       req.session.logged_in = true;
 
-      res.json({ user: userData, message: "You are now logged in!" });
-    });
+        console.log(req.session.user_id)
 
-    // if the login info matches the one in database, allow user to login in
-    res.status(200).json({ message: "logged in successfully" });
+       res.json({ user: userLoginInfo, logged_in: req.session.logged_in, message: "You are now logged in!" });
+       return
+      });
+
   } catch (err) {
     res.status(500).json({ message: "500 internal server error" });
   }
