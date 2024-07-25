@@ -15,24 +15,34 @@ const exphbs = require("express-handlebars");
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-//creating the SequlizeStore 
-
-const sess = {
-  secret: 'You guys rock!',
-  store: new SequelizeStore({
-    db: sequelize,
-  }),
-
-}
-
 // initializing the port and app
 const PORT = process.env.PORT || 3001;
 const app = express();
 const hbs = exphbs.create({});
 
+
+
+//creating the SequlizeStore 
+
+const sess = {
+  secret: 'You guys rock!',
+  cookie: {
+    maxAge: 300000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
+  resave:false,
+  saveUninitisliazed: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
+
+
 app.use(clog);
 
-//app.use(session);
+app.use(session(sess));
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', "handlebars");
@@ -51,33 +61,8 @@ app.use(routes);
 
 
 // Sync datbase with server
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
     console.log(`listening at port ${PORT}`);
   });
 });
-
-// Code for upvote/downvote/voteCount system. Not entirely sure if it all gets implimented here in server.js, so i commented everything out so it wouldnt break anything
-
-// var inc = 0;
-// var dec = 0;
-// var voteCount = inc.valueOf + dec.valueOf
-
-// app.get('/votes', async (req, res) => {
-//   res.json({voteCount});
-// });
-
-// app.post("/upvote", async (req, res) => {
-//   res.setHeader("Upvote");
-//   inc += parseFloat(req.body.changeBy);
-//   res.write(JSON.stringify(inc));
-//   res.end()
-// });
-
-// app.post("/downvote", async (req, res) => {
-//   res.setHeader("Downvote");
-//   dec -= parseFloat(req.body.changeBy);
-//   res.write(JSON.stringify(dec));
-//   res.end()
-// });
-
