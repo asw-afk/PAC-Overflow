@@ -27,19 +27,19 @@
         <a>Post</a>
         <input class="nav-search" type="text" placeholder="Search.." />
         {{#if logged_in}}
-          <a>Welcome back, pal.</a>
-          <button class="no-button" id="logout">logout</button>
+          <a>Welcome back, Houssine.</a>
+          <a   id="logout" href="/api/users/logout">logout</a>
         {{else}}
           <a id="nav-login" href="/api/users/login">Login</a>
         {{/if}}
       </header>
 
       <main class="container-fluid mt-5">
-        {{#if logged_in}}
+        {{!-- {{#if logged_in}}
         <button id="create-post" href="">Create Post</button>
           {{else}}
 
-          {{/if}}
+          {{/if}} --}}
 
         {{{body}}}
 
