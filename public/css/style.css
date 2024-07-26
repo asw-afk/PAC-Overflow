@@ -40,6 +40,13 @@
   
   }
 
+  #logout{
+    margin-left:10px;
+    margin-right:20px;
+  }
+
+
+
   /* for search navigation  */
   .nav-search{
     margin-left:auto;
