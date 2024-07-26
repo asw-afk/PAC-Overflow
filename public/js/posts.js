@@ -11,18 +11,18 @@ const postFormHandler = async (event) => {
       method: "POST",
       body: JSON.stringify({ title, game, body, votes }),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     });
 
     if (response.ok) {
-        document.location.replace("api/users/post");
-
+      document.location.replace("api/users/post");
     } else {
-        alert('Failed to create post');
-
+      alert("Failed to create post");
     }
-
   }
-  
 };
+
+document.querySelector().addEventListener();
+
+document.querySelector().addEventListener();
