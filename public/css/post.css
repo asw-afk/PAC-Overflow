@@ -1,0 +1,94 @@
+.container{
+ justify-content: center;
+
+}
+
+.posts-main {
+  /* margin:80px; */
+  width: 100%;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.posts-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 10px;
+  margin-top: 100px;
+}
+.side-bar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 10px;
+  margin-top: 100px;
+}
+
+.post-btn {
+  display: flex;
+  width: 100%;
+  flex-direction: row-reverse;
+  margin: 20px;
+}
+
+#create-post {
+  width: 150px;
+  height: 40px;
+  background-color: rgb(33, 32, 87);
+  margin-left: auto;
+  color: white;
+  border-radius: 5px;
+}
+
+.post {
+  padding: 30px;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 2px 2px gray;
+}
+.post-cmt {
+  padding: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+  gap:10px;
+
+}
+
+/* to display the button of comment */
+.post-cmt button {
+  background: none;
+  border: none;
+  cursor: pointer;
+ 
+}
+.comment-input {
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+  textarea{
+    width: 100%;
+    background-color: transparent;
+    border-radius: 5px;
+    box-shadow: 2px 2px gray;
+  }
+}
+
+.add-comment {
+  margin-top: 10px;
+  border: 2px solid black;
+  width: 150px;
+  padding: 5px;
+  margin-left: 0px;
+  border-radius: 5px;
+  box-shadow: 2px 2px rgb(83, 83, 116);
+  text-align: center;
+  margin-left:auto;
+  background-color: transparent;
+ 
+}
+.hidden{
+    display:none;
+}
