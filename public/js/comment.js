@@ -3,23 +3,18 @@
 const commentFormHandler = async (event) => {
   event.preventDefault();
 
-  const commentText = event.target.querySelector("textarea").value.trim();
-  const post_Id = event.target.closest(".post").getAttribute("data-post-id");
+  const body = event.target.querySelector("textarea").value.trim();
+  const votes = 0;
 
-  if (commentText && post_Id) {
+  if (body && votes) {
     const response = await fetch("/api/comments/newComment", {
       method: "POST",
-      body: JSON.stringify({
-        body: commentText,
-        votes: 0,
-        user_id: 1,
-        post_id: post_Id,
-      }),
+      body: JSON.stringify({ body, votes }),
       headers: {
         "Content-Type": "application/json",
       },
     });
-    console.log(response.status);
+    
     if (response.ok) {
       document.location.reload();
     } else {

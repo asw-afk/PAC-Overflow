@@ -30,4 +30,3 @@ post_list.addEventListener("click", (event)=>{
        
     }
 })
-

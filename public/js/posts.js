@@ -16,7 +16,8 @@ const postFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/posts");
+      
+      document.location.replace("/api/users/post");
     } else {
       alert("Failed to create post");
     }
