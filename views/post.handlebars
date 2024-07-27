@@ -1,6 +1,14 @@
 <div class="posts-list">
-    <h1>You have logged in to your account</h1>
+   
+    {{#if logged_in}}
+        <button id="create-post" href="">Create Post</button>
+     {{/if}}
+    {{!-- <h1>You have logged in to your account</h1> --}}
+ 
+    {{!-- <h1>You're not logged in</h1> --}}
+   
 <div class="post-title">
+   
     {{post_title}}
 </div>
 
