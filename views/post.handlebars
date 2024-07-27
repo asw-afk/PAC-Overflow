@@ -5,7 +5,7 @@
      {{/if}} --}}
 
      <div class="container d-flex  vh-100 posts-main">
-        <form class="form new-post-form">
+        {{!-- <form class="form new-post-form">
             <div class="form-group">
                 <label for="post-title">Title</label>
                 <input class="form-input" type="text" id="post-title" name="post-title" />
@@ -19,18 +19,48 @@
                 <textarea class="form-input" type="text" id="post-body" name="post-body"></textarea>
             </div>
             <div class="form-group">
-                <button id="create-post" type="sumbit">Create Post</button> 
+               
             </div>
               
 
-           </form>
+           </form> --}}
         {{!-- <div class=" side-bar col-3 ">
             <h1> this is a place holder</h1>
         </div> --}}
         <div class=" col-9 posts-list ">
            <div class="post-btn ">
              {{!-- {{#if logged_in}} --}}
-           
+            <button id="create-post" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Create Post</button>
+             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Create new post</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="new-post-form">
+          <div class="mb-3">
+            <label for="post-title" class="col-form-label">Title:</label>
+            <input type="text" class="form-control" id="post-title">
+          </div>
+          <div class="mb-3">
+            <label for="post-game" class="col-form-label">Game:</label>
+            <input type="text" class="form-control" id="post-game">
+          </div>
+          <div class="mb-3">
+            <label for="post-body" class="col-form-label">Body:</label>
+            <textarea class="form-control" id="post-body"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Create Post</button>
+      </div>
+    </div>
+  </div>
+</div>
                 
      {{!-- {{/if}} --}}
            </div> 
@@ -111,7 +141,9 @@
                  
             </div>
         </div>
+        
    <script type="text/javascript" src="/js/post.js"></script>
+   <
    
 
   

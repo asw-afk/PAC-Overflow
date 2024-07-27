@@ -2,7 +2,7 @@ const postFormHandler = async (event) => {
   event.preventDefault();
 
   const title = document.querySelector('#post-title').value.trim();
-  const game = document.querySelectory('#post-game').value.trim();
+  const game = document.querySelector('#post-game').value.trim();
   const body = document.querySelector('#post-body').value.trim();
   const votes = 0;
 
@@ -23,6 +23,11 @@ const postFormHandler = async (event) => {
   }
 };
 
-document.querySelector('.new-post-form').addEventListener('submit', postFormHandler );
+document.querySelector('#submit-post').addEventListener('click', postFormHandler );
 
-document.querySelector().addEventListener();
+
+//Comment Submission
+
+const commentFormHandler = async (event) => {
+
+}
