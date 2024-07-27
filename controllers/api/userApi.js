@@ -9,7 +9,7 @@ router.post("/signup", async (req, res) => {
     const newUser = req.body;
     console.log(newUser);
     // hashing the password that is in the object of new user
-    newUser.password = await bcrypt.hash(req.body.password, 8);
+    // newUser.password = await bcrypt.hash(req.body.password, 8);
     // after hashing the password create and store the new user
     console.log(newUser);
     const CreatedUser = await User.create(newUser);
@@ -63,9 +63,7 @@ router.post("/login", async (req, res) => {
       console.log("This should be the loggin info");
       console.log(userLoginInfo);
 
-        // console.log(req.session.user_id)
-
-      //  res.status(200).json({ user: userLoginInfo, logged_in: req.session.logged_in, message: "You are now logged in!" });
+      
       res.json({ user: userLoginInfo,message: "You are now logged in!" });
        
        
@@ -104,36 +102,6 @@ router.post('/logout', (req, res) => {
     }
 });
 
-
-// login post request 
-// full url api/users/login
-// router.post("/login", async(req,res) =>{
-//     try{
-//        // assigning the user login to userLoginIngo
-//        console.log(req.body.email);
-//        const userLoginInfo = await User.findOne({where:{email: req.body.email}});
-//        console.log(userLoginInfo);
-   
-//        // checking if the user inputed data, if no info return erorr with message
-//        if(!userLoginInfo){
-//           return res.status(404).json({message: "login failed: please enter your login info"});
-//        };
-   
-//        // if the usre has all login info check if the password correct
-//        const isValidPassword = await bcrypt.compare( req.body.password, userLoginInfo.password);
-   
-//        // if the passwod does not match the user password in database 
-//        if(!isValidPassword){
-//          return  res.status(400).json({message:'password is invalid'})
-//        }
-   
-//        // if the login infor matched the one in database, allow user to login in
-//        res.status(200).json({message: "logged in successfully"})
-//     }catch(err){
-//        res.status(500).json({message:"500 internal server error"})
-   
-//     }
-//    })
    //********************************Get request  */
    // full api: /api/users/
 router.get("/login", (req, res)=>{
