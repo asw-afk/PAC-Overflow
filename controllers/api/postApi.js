@@ -1,5 +1,8 @@
 const router= require("express").Router();
 const Post = require("../../models/Posts");
+const User= require("../../models/User");
+const Comment = require("../../models/Comment");
+
 //post request for creating new post
 router.post('/newPost', async (req,res) => {
     try{ console.log("ooo")
@@ -19,4 +22,33 @@ router.post('/newPost', async (req,res) => {
     }
 })
 
+router.get("/", async (req, res)=>{
+    try{
+        const postData = await Post.findAll({
+            include:[
+
+                {
+                    model:User,
+                    attributes:['id','name'],
+                },      
+                {
+                    model:Comment,
+                    attributes:['id','body'],
+                },           
+            ],
+        });  
+         
+    // Serialize data so the template can read it
+    const posts = postData.map((post) => post.get({ plain: true }));
+    console.log('this data is clean *******************************************');
+    console.log(posts);
+    res.render("post",{posts, logged_in: req.session.logged_in});
+
+}catch(err){
+    console.log(err);
+    res.status(500).json(err);
+
+
+}
+});
 module.exports = router
