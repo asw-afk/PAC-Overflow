@@ -7,8 +7,11 @@
         {{/if}}
        {{#each posts as |post logged_in|}}
 
+       {{!-- Here the post started  --}}
+
              <div  class="post  w-100" data-post-id ={{post.id}}>
                 <div>
+
                     <h3 class="author" id="authorId"><strike>{{post.user.name}}</strike></h3>
                     <p>{{post.body}}</p>
                     
@@ -35,19 +38,43 @@
                     </button>
             
                     </div>
-                     {{/if}}  
-                  
-            </div>
-                <div class="comment-input hidden">
+                     {{/if}} 
+
+                     <div class="comment-input hidden">
                  <textarea placeholder="Write a comment"></textarea>
                  <button class="add-comment" type="submit">Add</button>
 
-                </div>
-                 
-            </div>
+                </div> 
 
+                 {{!-- *********************************** button to render comment rendering --}}
+                 <div class="post-cmt">
+                     <button class=" show-comment"> {{comments.length}} comments 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+  <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+</svg>
+                    </button>
+                    </div>
+
+{{!-- Her the comment start to render --}}
+        {{#if comments.length}}
+         
+         {{#each comments}}
+            <div  class="comment-seciton w-100" >
+                <div class="comment-section">
+                    <h3 class="author" id="authorId"><strike>{{id}}</strike></h3>
+                    <p>{{body}}</p>
+                </div>
+                  
+            </div>
+            
+     {{/each}}
+             {{/if}}
+            </div> 
+         
+            </div>
+          
+{{!-- Her the post ended  --}}
              {{/each}}
-</div>
        
    <script type="text/javascript" src="/js/post.js"></script>
   
