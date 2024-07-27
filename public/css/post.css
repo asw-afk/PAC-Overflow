@@ -92,3 +92,23 @@
 .hidden{
     display:none;
 }
+
+.show-comment{
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  /* flex-direction: row-reverse; */
+  justify-content: left;
+  gap:10px;
+ 
+}
+
+.comment-seciton{
+  background-color: transparent;
+  box-shadow: 1px 1px 1px 2px gray;
+  border-radius: 15px;
+  padding:20px;
+  margin-bottom:10px;
+}

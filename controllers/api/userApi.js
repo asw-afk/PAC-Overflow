@@ -78,29 +78,20 @@ router.post("/login", async (req, res) => {
 
 //********************************Get request  */
 // full api: /api/users/
-router.get("/login", (req, res) => {
-  res.render("login", );
-});
-router.get("/signup", (req, res) => {
-  res.render("signup");
-});
-router.get("/post", (req, res) => {
-  res.render("post", {logged_in: req.session.logged_in});
-});
-router.get("/homepage", (req, res) => {
-  res.render("homepage");
-});
+// router.get("/login", (req, res) => {
+//   res.render("login", );
+// });
+// router.get("/signup", (req, res) => {
+//   res.render("signup");
+// });
+// router.get("/post", (req, res) => {
+//   res.render("post", {logged_in: req.session.logged_in});
+// });
+// router.get("/homepage", (req, res) => {
+//   res.render("homepage");
+// });
 
 
-router.post('/logout', (req, res) => {
-    if (req.session.logged_in) {
-        req.session.destroy(() => {
-            res.status(204).end();
-        });
-    } else {
-        res.status(404).end();
-    }
-});
 
    //********************************Get request  */
    // full api: /api/users/
@@ -110,12 +101,22 @@ router.get("/login", (req, res)=>{
 router.get("/signup", (req, res)=>{
     res.render("signup")
 })
-router.get("/post", (req, res)=>{
-    res.render("post")
-})
+// router.get("/post", (req, res)=>{
+//     res.render("post")
+// })
 router.get("/homepage", (req, res)=>{
     res.render("homepage")
 })
+
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+      req.session.destroy(() => {
+          res.status(204).end();
+      });
+  } else {
+      res.status(404).end();
+  }
+});
 
 
 module.exports = router;
