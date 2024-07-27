@@ -18,10 +18,10 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        game:{
-         type: DataTypes.STRING,
-         allowNull: false,
-        },
+        // game:{
+        //  type: DataTypes.STRING,
+        //  allowNull: false,
+        // },
         body:{
             type: DataTypes.STRING,
             allowNull: false,
