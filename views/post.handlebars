@@ -5,13 +5,33 @@
      {{/if}} --}}
 
      <div class="container d-flex  vh-100 posts-main">
+        <form class="form new-post-form">
+            <div class="form-group">
+                <label for="post-title">Title</label>
+                <input class="form-input" type="text" id="post-title" name="post-title" />
+            </div>
+            <div class="form-group">
+                <label for="post-game">Game</label>
+                <input class="form-input" type="text" id="post-game" name="post-game" />
+            </div>
+            <div class="form-group">
+                <label for="post-body">Body</label>
+                <textarea class="form-input" type="text" id="post-body" name="post-body"></textarea>
+            </div>
+            <div class="form-group">
+                <button id="create-post" type="sumbit">Create Post</button> 
+            </div>
+              
+
+           </form>
         {{!-- <div class=" side-bar col-3 ">
             <h1> this is a place holder</h1>
         </div> --}}
         <div class=" col-9 posts-list ">
            <div class="post-btn ">
              {{!-- {{#if logged_in}} --}}
-                <button id="create-post" href="">Create Post</button>   
+           
+                
      {{!-- {{/if}} --}}
            </div> 
        
@@ -92,6 +112,8 @@
             </div>
         </div>
    <script type="text/javascript" src="/js/post.js"></script>
+   
+
   
 {{!-- <div class="post-title">
    
