@@ -7,7 +7,7 @@ const postFormHandler = async (event) => {
   const votes = 0;
 
   if (title && game && body) {
-    const response = await fetch("/api/users/newPost", {
+    const response = await fetch("/api/posts/newPost", {
       method: "POST",
       body: JSON.stringify({ title, game, body, votes }),
       headers: {
@@ -26,8 +26,3 @@ const postFormHandler = async (event) => {
 document.querySelector('#submit-post').addEventListener('click', postFormHandler );
 
 
-//Comment Submission
-
-const commentFormHandler = async (event) => {
-
-}
