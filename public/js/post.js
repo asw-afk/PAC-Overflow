@@ -16,17 +16,27 @@ function showCommentInput(commentBtn){
       comment_input_area.classList.add("hidden");
   }
 }
+//function that handles adding comments
+function addComment(addCommentBtn) {
+    
+    const post = addCommentBtn.closes(".post");
+
+    const comm
+}
 
 // event handler that will handel al click in the post handlebar
 post_list.addEventListener("click", (event)=>{
     console.log("You have clicked the button");
     // find the exact button that was clicked 
     const commentBtn = event.target.closest(".comment-btn");
-   
+   const addCommentBtn = event.target.closest(".add-comment");
     // if it is found
     if(commentBtn){
         // pass the button to the function
         showCommentInput(commentBtn)      
        
+    }
+    if (addCommentBtn){
+        addComment(addCommentBtn)
     }
 })
