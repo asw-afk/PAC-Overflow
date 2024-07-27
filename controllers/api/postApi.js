@@ -19,4 +19,8 @@ router.post('/newPost', async (req,res) => {
     }
 })
 
+router.get("/", (req, res)=>{
+    res.render("post")
+})
+
 module.exports = router

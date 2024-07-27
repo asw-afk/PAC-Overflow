@@ -25,7 +25,7 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       //If successful
-      document.location.replace("/api/users/post");
+      document.location.replace("/api/posts");
       console.log();
     } else {
     
