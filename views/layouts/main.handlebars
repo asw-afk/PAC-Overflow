@@ -29,7 +29,7 @@
         <a>Post</a>
         <input class="nav-search" type="text" placeholder="Search.." />
         {{#if logged_in}}
-          <a>Welcome back, Houssine.</a>
+          <a class="loggedIn"></a>
           <a   id="logout" href="/api/users/logout">logout</a>
         {{else}}
           <a id="nav-login" href="/api/users/login">Login</a>
@@ -52,6 +52,7 @@
       <script src="/js/logout.js"></script>
     {{/if}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/login.js"></script>
   </body>
-
+ 
 </html>

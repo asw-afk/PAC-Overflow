@@ -61,10 +61,6 @@ post_list.addEventListener("click", (event)=>{
     // if it is found
     const showComment = event.target.closest(".show-comment");
    
-    // if the commetn btn clicked
-
-   const addCommentBtn = event.target.closest(".add-comment");
-    // if it is found
 
     if(commentBtn){
         // pass the button to the function
