@@ -1,18 +1,46 @@
 <div class="container d-flex  vh-100 posts-main">
         <div class=" col-9 posts-list ">
             {{#if logged_in}}
+          
            <div class="post-btn ">             
-                <button id="create-post" href="">Create Post</button>                  
+         <button id="create-post" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Create Post</button>
+     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+         <div class="modal-content">
+         <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Create new post</h1>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+        <div class="modal-body">
+        <form id="new-post-form">
+          <div class="mb-3">
+            <label for="post-title" class="col-form-label">Title:</label>
+            <input type="text" class="form-control" id="post-title">
+          </div>
+          <div class="mb-3">
+            <label for="post-body" class="col-form-label">Body:</label>
+            <textarea class="form-control" id="post-body"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="submit-post">Create Post</button>
+      </div>
+      </div>
+  </div>
+</div>                 
            </div> 
         {{/if}}
        {{#each posts as |post logged_in|}}
 
        {{!-- Here the post started  --}}
 
-             <div  class="post  w-100" data-post-id ={{post.id}}>
+             <div  class="post  w-100" data-postid="{{post.id}}">
                 <div>
 
                     <h3 class="author" id="authorId"><strike>{{post.user.name}}</strike></h3>
+                    <p><strong>{{post.title}}</strong></p>
                     <p>{{post.body}}</p>
                     
                     {{#if ../logged_in}}
@@ -41,7 +69,7 @@
                      {{/if}} 
 
                      <div class="comment-input hidden">
-                 <textarea placeholder="Write a comment"></textarea>
+                 <textarea id="text-comment" placeholder="Write a comment"></textarea>
                  <button class="add-comment" type="submit">Add</button>
 
                 </div> 
@@ -77,4 +105,6 @@
              {{/each}}
        
    <script type="text/javascript" src="/js/post.js"></script>
+   <script type="text/javascript" src="/js/newPost.js"></script>
+   <script type="text/javascript" src="/js/comment.js"></script>
   
