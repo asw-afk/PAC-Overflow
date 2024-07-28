@@ -1,3 +1,13 @@
+document.addEventListener('DOMContentLoaded', (event) => {
+  const submitPostButton = document.querySelector("#submit-post");
+
+  //the addEventListener call is only made if the #submit-post button exists in the DOM.
+
+  if (submitPostButton) {
+    submitPostButton.addEventListener("click", postFormHandler);
+  }
+})
+;
 const postFormHandler = async (event) => {
   event.preventDefault();
 
@@ -21,7 +31,3 @@ const postFormHandler = async (event) => {
     }
   }
 };
-
-document
-  .querySelector("#submit-post")
-  .addEventListener("click", postFormHandler);
