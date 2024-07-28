@@ -16,17 +16,38 @@ function showCommentInput(commentBtn){
       comment_input_area.classList.add("hidden");
   }
 }
+ //***************Function that will expand comments */
 
+ function expandComment(showComment){
+    console.log('you clicked show comments');
+    // find the post that the button was clicked
+    const post = showComment.closest(".post");
+// used the post to find the exact button was clicked
+    const expandComment = post.querySelector(".comments-section");
+    console.log(expandComment);
+    // for(let i=0; i<expandComment.length; i++)
+    if(expandComment.classList.contains('hidden')){
+        console.log('you are here in the condition');
+        expandComment.classList.remove("hidden")
+    }else{
+        expandComment.classList.add("hidden");
+    }
+ }
 // event handler that will handel al click in the post handlebar
 post_list.addEventListener("click", (event)=>{
     console.log("You have clicked the button");
     // find the exact button that was clicked 
     const commentBtn = event.target.closest(".comment-btn");
+    const showComment = event.target.closest(".show-comment");
    
-    // if it is found
+    // if the commetn btn clicked
     if(commentBtn){
         // pass the button to the function
-        showCommentInput(commentBtn)      
-       
+        showCommentInput(commentBtn)         
+    }
+
+    // if expend the comment btn clicked 
+    if(showComment){
+        expandComment(showComment);
     }
 })
