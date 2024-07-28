@@ -16,8 +16,23 @@ function showCommentInput(commentBtn){
       comment_input_area.classList.add("hidden");
   }
 }
- //***************Function that will expand comments */
 
+//function that handles adding comments
+function addComment(addCommentBtn, event) {
+    
+    const post = addCommentBtn.closest(".post");
+    const commentTextArea = post.querySelector("#text-comment").value.trim();
+    // const user_id = req.session.logged_in;
+    const post_id = post.dataset.postid;
+
+
+    console.log("I'm printing whatever is in text_area");
+    // console.log(user_id);
+    console.log(commentTextArea);
+   console.log(`Post id: ${post_id}`)
+}
+
+ //***************Function that will expand comments */
  function expandComment(showComment){
     console.log('you clicked show comments');
     // find the post that the button was clicked
@@ -38,9 +53,14 @@ post_list.addEventListener("click", (event)=>{
     console.log("You have clicked the button");
     // find the exact button that was clicked 
     const commentBtn = event.target.closest(".comment-btn");
+
     const showComment = event.target.closest(".show-comment");
    
     // if the commetn btn clicked
+
+   const addCommentBtn = event.target.closest(".add-comment");
+    // if it is found
+
     if(commentBtn){
         // pass the button to the function
         showCommentInput(commentBtn)         
@@ -49,5 +69,8 @@ post_list.addEventListener("click", (event)=>{
     // if expend the comment btn clicked 
     if(showComment){
         expandComment(showComment);
+    }
+    if (addCommentBtn){
+        addComment(addCommentBtn, event)
     }
 })
