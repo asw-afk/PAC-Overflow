@@ -9,7 +9,7 @@
 
        {{!-- Here the post started  --}}
 
-             <div  class="post  w-100" data-post-id ={{post.id}}>
+             <div  class="post  w-100" data-postid="{{post.id}}">
                 <div>
 
                     <h3 class="author" id="authorId"><strike>{{post.user.name}}</strike></h3>
@@ -41,7 +41,7 @@
                      {{/if}} 
 
                      <div class="comment-input hidden">
-                 <textarea placeholder="Write a comment"></textarea>
+                 <textarea id="text-comment" placeholder="Write a comment"></textarea>
                  <button class="add-comment" type="submit">Add</button>
 
                 </div> 

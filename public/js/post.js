@@ -17,11 +17,18 @@ function showCommentInput(commentBtn){
   }
 }
 //function that handles adding comments
-function addComment(addCommentBtn) {
+function addComment(addCommentBtn, event) {
     
-    const post = addCommentBtn.closes(".post");
+    const post = addCommentBtn.closest(".post");
+    const commentTextArea = post.querySelector("#text-comment").value.trim();
+    // const user_id = req.session.logged_in;
+    const post_id = post.dataset.postid;
 
-    const comm
+
+    console.log("I'm printing whatever is in text_area");
+    // console.log(user_id);
+    console.log(commentTextArea);
+   console.log(`Post id: ${post_id}`)
 }
 
 // event handler that will handel al click in the post handlebar
@@ -37,6 +44,6 @@ post_list.addEventListener("click", (event)=>{
        
     }
     if (addCommentBtn){
-        addComment(addCommentBtn)
+        addComment(addCommentBtn, event)
     }
 })
