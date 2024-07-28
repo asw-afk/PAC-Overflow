@@ -1,15 +1,16 @@
-// //Comment Submission NOT WORKING!!
+//Comment Submission unable to get it to work,
 
 // const commentFormHandler = async (event) => {
 //   event.preventDefault();
 
-//   const body = event.target.querySelector("textarea").value.trim();
+//   const commentTextArea = event.target.querySelector("textarea").value.trim();
+//   // const user_id = document.querySelector
 //   const votes = 0;
 
 //   if (commentTextArea && user_id) {
 //     const response = await fetch("/api/comments/newComment", {
 //       method: "POST",
-//       body: JSON.stringify({ body, votes }),
+//       body: JSON.stringify({ body: commentTextArea, votes: votes, user_id: user_id }),
 //       headers: {
 //         "Content-Type": "application/json",
 //       },
