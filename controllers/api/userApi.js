@@ -12,13 +12,14 @@ router.post("/signup", async (req, res) => {
     // newUser.password = await bcrypt.hash(req.body.password, 8);
     // after hashing the password create and store the new user
     console.log(newUser);
-    const CreatedUser = await User.create(newUser);
+    const createdUser = await User.create(newUser);
 
     req.session.save(() => {
-      req.session.user_id = CreatedUser.id;
+      req.session.user_id = createdUser.id;
+      req.session.name= createdUser.name;
       req.session.logged_in = true;
         console.log(req.session.user_id)
-       res.status(200).json(CreatedUser);
+       res.status(200).json(createdUser);
       
       });
     // res.status(200).json({ message: "user created successfully" });
@@ -40,7 +41,7 @@ router.post("/login", async (req, res) => {
     if (!userLoginInfo) {
       return res
         .status(404)
-        .json({ message: "login failed: please enter your login info" });
+        .json({ message: "login failed: no account with such email" });
     } 
 
     // if the user has all login info check if the password correct
@@ -56,15 +57,18 @@ router.post("/login", async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.user_id = userLoginInfo.id;
+      req.session.id = userLoginInfo.id;
+      req.session.name = userLoginInfo.name;
+      
       req.session.logged_in = true;
 
-      console.log(req.session.logged_in);
+      console.log("This is the name of the user logged in");
+      console.log(req.session.name);
       console.log("This should be the loggin info");
       console.log(userLoginInfo);
 
       
-      res.json({ user: userLoginInfo,message: "You are now logged in!" });
+      res.json({ user: req.session, logged_in: req.session.logged_in,message: "You are now logged in!" });
        
        
       });
@@ -73,24 +77,6 @@ router.post("/login", async (req, res) => {
     res.status(500).json({ message: "500 internal server error" });
   }
 });
-
-
-
-//********************************Get request  */
-// full api: /api/users/
-// router.get("/login", (req, res) => {
-//   res.render("login", );
-// });
-// router.get("/signup", (req, res) => {
-//   res.render("signup");
-// });
-// router.get("/post", (req, res) => {
-//   res.render("post", {logged_in: req.session.logged_in});
-// });
-// router.get("/homepage", (req, res) => {
-//   res.render("homepage");
-// });
-
 
 
    //********************************Get request  */

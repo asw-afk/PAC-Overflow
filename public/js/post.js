@@ -1,7 +1,7 @@
 const post_list = document.querySelector(".posts-list");
 
 
-// Function that will handel showing the textarea to type comment
+//****/ Function that will handel showing the textarea to type comment******** 
 function showCommentInput(commentBtn){
  // find out the exact post that the clicked button exist
  const post = commentBtn.closest(".post");
@@ -32,7 +32,10 @@ function addComment(addCommentBtn, event) {
    console.log(`Post id: ${post_id}`)
 }
 
+ 
+
  //***************Function that will expand comments */
+
  function expandComment(showComment){
     console.log('you clicked show comments');
     // find the post that the button was clicked
@@ -54,12 +57,10 @@ post_list.addEventListener("click", (event)=>{
     // find the exact button that was clicked 
     const commentBtn = event.target.closest(".comment-btn");
 
-    const showComment = event.target.closest(".show-comment");
-   
-    // if the commetn btn clicked
-
    const addCommentBtn = event.target.closest(".add-comment");
     // if it is found
+    const showComment = event.target.closest(".show-comment");
+   
 
     if(commentBtn){
         // pass the button to the function
