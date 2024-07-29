@@ -50,5 +50,33 @@ router.get("/", async (req, res)=>{
 
 
 }
-});
+})
+// patch post to update the vote for the post  /api/posts/post
+router.patch("/post", async (req, res)=>{
+    console.log("I am in the patch request");
+    const id = req.body.id;
+    const newVote = req.body.votes;
+    console.log(id);
+    console.log(newVote);
+
+    try{
+        const post = await Post.findByPk(id);
+        if(post){
+            const newUpdate = await Post.update({votes:newVote},{
+                where: {
+                    id: id
+                }
+            })
+            res.status(200).json(newUpdate);
+        }else{
+            res.status(404).json({message: "post not found"})
+        }
+        
+
+    }catch(err){
+        res.status(500).json(err)
+    }
+
+})
+
 module.exports = router
