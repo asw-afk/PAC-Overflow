@@ -1,4 +1,4 @@
-//Comment Submission unable to get it to work,
+// //Comment Submission unable to get it to work
 
 // const commentFormHandler = async (event) => {
 //   event.preventDefault();
@@ -8,6 +8,7 @@
 //   const votes = 0;
 
 //   if (commentTextArea && user_id) {
+//     console.log("Preparing to make fetch call...");
 //     const response = await fetch("/api/comments/newComment", {
 //       method: "POST",
 //       body: JSON.stringify({ body: commentTextArea, votes: votes, user_id: user_id }),

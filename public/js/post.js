@@ -1,7 +1,7 @@
 const post_list = document.querySelector(".posts-list");
 
 
-//****/ Function that will handel showing the textarea to type comment******** 
+// Function that will handel showing the textarea to type comment
 function showCommentInput(commentBtn){
  // find out the exact post that the clicked button exist
  const post = commentBtn.closest(".post");
@@ -18,24 +18,42 @@ function showCommentInput(commentBtn){
 }
 
 //function that handles adding comments
-function addComment(addCommentBtn, event) {
+ const addComment = async (addCommentBtn) => {
     
     const post = addCommentBtn.closest(".post");
     const commentTextArea = post.querySelector("#text-comment").value.trim();
-    // const user_id = req.session.logged_in;
+    const user_id = post.dataset.userid;
     const post_id = post.dataset.postid;
 
 
     console.log("I'm printing whatever is in text_area");
-    // console.log(user_id);
+    console.log(`User: id: ${user_id}`);
     console.log(commentTextArea);
    console.log(`Post id: ${post_id}`)
+//    console.log(typeof(user_id));
+//    console.log(typeof(post_id));
+
+   //fetch call
+     if (commentTextArea && user_id && post_id) {
+    console.log("Preparing to make fetch call...");
+    const response = await fetch("/api/comments/newComment", {
+      method: "POST",
+      body: JSON.stringify({ body: commentTextArea, user_id: user_id, post_id: post_id }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      console.log(data);
+        alert("Failed to add comment");
+    }
+  }
 }
 
- 
-
  //***************Function that will expand comments */
-
  function expandComment(showComment){
     console.log('you clicked show comments');
     // find the post that the button was clicked
@@ -57,10 +75,12 @@ post_list.addEventListener("click", (event)=>{
     // find the exact button that was clicked 
     const commentBtn = event.target.closest(".comment-btn");
 
-   const addCommentBtn = event.target.closest(".add-comment");
-    // if it is found
     const showComment = event.target.closest(".show-comment");
    
+    // if the commetn btn clicked
+
+   const addCommentBtn = event.target.closest(".add-comment");
+    // if it is found
 
     if(commentBtn){
         // pass the button to the function
@@ -72,6 +92,7 @@ post_list.addEventListener("click", (event)=>{
         expandComment(showComment);
     }
     if (addCommentBtn){
-        addComment(addCommentBtn, event)
+        addComment(addCommentBtn)
     }
 })
+
