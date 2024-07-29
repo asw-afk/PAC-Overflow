@@ -1,13 +1,11 @@
 const post_list = document.querySelector(".posts-list");
-
-
 // Function that will handel showing the textarea to type comment
 function showCommentInput(commentBtn){
  // find out the exact post that the clicked button exist
  const post = commentBtn.closest(".post");
  // use the post to find out the exact target it area that need to change
  const comment_input_area = post.querySelector(".comment-input");
-
+console.log(userData)
  // if the class contain hidden class remove it otherwise add it
  if( comment_input_area.classList.contains('hidden')){
       comment_input_area.classList.remove("hidden");
@@ -74,7 +72,7 @@ function showCommentInput(commentBtn){
 
   const voteUp = event.target.closest(".vote-up-btn");
   const voteDown = event.target.closest(".vote-down-btn");
-
+  
  const post = action.closest(".post");
  let vote = post.querySelector('.vote').innerText;
   const post_id = post.dataset.postid;

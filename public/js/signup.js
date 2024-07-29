@@ -10,14 +10,14 @@ console.log(name);
 console.log(email);
 console.log(password);
 if(name && email && password){
-
+console.log("I have passed the condition");
     const res = await fetch('/api/users/signup',{
         method:"POST",
         body: JSON.stringify({name,email,password}),
         headers: {"Content-Type":"application/json"}, 
     });
 
-
+    
     if (res.ok){
       
         const data = await res.json();
@@ -25,7 +25,7 @@ if(name && email && password){
 
      singup_result.textContent = message;
      singup_result.setAttribute("class", 'success');
-        // window.location.href = "api/users/login";
+        window.location.href = "/api/users/login"
     }else{
         console.error("Failed to signup:", res.status)
     }

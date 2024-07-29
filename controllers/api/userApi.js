@@ -19,7 +19,7 @@ router.post("/signup", async (req, res) => {
       req.session.name= createdUser.name;
       req.session.logged_in = true;
         console.log(req.session.user_id)
-       res.status(200).json(createdUser);
+       res.status(200).json({message:'account created successfully'});
       
       });
     // res.status(200).json({ message: "user created successfully" });
