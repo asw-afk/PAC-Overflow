@@ -46,7 +46,7 @@ posts-main">
              <div  class="post  w-100" data-postid="{{post.id}}" data-userid="{{post.user.id}}">
                 <div>
 
-                    <h3 class="author" id="authorId"><strike>{{post.user.name}}</strike></h3>
+                    <h3 class="author" id="authorId">{{hide_name post.user.name}}</h3>
                     <p><strong>{{post.title}}</strong></p>
                     <p>{{post.body}}</p>
                     
