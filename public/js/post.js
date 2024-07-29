@@ -18,7 +18,7 @@ function showCommentInput(commentBtn){
 }
 
 //function that handles adding comments
-function addComment(addCommentBtn, event) {
+ const addComment = async (addCommentBtn) => {
     
     const post = addCommentBtn.closest(".post");
     const commentTextArea = post.querySelector("#text-comment").value.trim();
@@ -30,6 +30,27 @@ function addComment(addCommentBtn, event) {
     console.log(`User: id: ${user_id}`);
     console.log(commentTextArea);
    console.log(`Post id: ${post_id}`)
+//    console.log(typeof(user_id));
+//    console.log(typeof(post_id));
+
+   //fetch call
+     if (commentTextArea && user_id && post_id) {
+    console.log("Preparing to make fetch call...");
+    const response = await fetch("/api/comments/newComment", {
+      method: "POST",
+      body: JSON.stringify({ body: commentTextArea, user_id: user_id, post_id: post_id }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      console.log(data);
+        alert("Failed to add comment");
+    }
+  }
 }
 
  //***************Function that will expand comments */
@@ -71,6 +92,7 @@ post_list.addEventListener("click", (event)=>{
         expandComment(showComment);
     }
     if (addCommentBtn){
-        addComment(addCommentBtn, event)
+        addComment(addCommentBtn)
     }
 })
+

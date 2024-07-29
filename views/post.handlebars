@@ -1,11 +1,17 @@
-<div class="container-fluid d-flex  vh-100 posts-main">
+<div class="container-fluid d-flex  vh-100 
+posts-main">
+
         <div class=" col-9 posts-list ">
-            {{#if logged_in}} 
-           <div class="post-btn ">             
+            {{#if logged_in}}
+          
+           <div class="post-btn w-100">             
          <button id="create-post" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Create Post</button>
-     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-         <div class="modal-dialog">
-         <div class="modal-content">
+
+
+
+     <div  class="modal  fade" id="exampleModal" >
+         <div id="modal-di" class="modal-dialog ">
+         <div id="modal-cnt" class="modal-content">
          <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Create new post</h1>
          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -25,12 +31,14 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" id="submit-post">Create Post</button>
+        
       </div>
       </div>
   </div>
 </div>                 
            </div> 
         {{/if}}
+        <h6>{{session.user_name}}</h6>
        {{#each posts as |post logged_in|}}
 
        {{!-- Here the post started  --}}

@@ -108,3 +108,23 @@
   padding:20px;
   margin-bottom:10px;
 }
+
+/* style for post input */
+#exampleModal{
+  width: 2000px !important;
+  
+}
+
+#modal-cnt{
+  position: absolute;
+  top:220px;
+  left:-300px;
+  width: 1000px !important;
+  background-color: #9facc3;
+}
+#post-title{
+  background-color: #ced9ee;
+}
+#post-body{
+  background-color: #ced9ee;
+}
