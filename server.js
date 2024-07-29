@@ -8,6 +8,7 @@ const path = require('path');
 
 const session = require('express-session');
 const {clog} = require('./utils/clogs.js');
+const helpers = require('./utils/helpers.js');
 
 
 const exphbs = require("express-handlebars");
@@ -18,7 +19,11 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // initializing the port and app
 const PORT = process.env.PORT || 3001;
 const app = express();
-const hbs = exphbs.create({});
+const hbs = exphbs.create({
+  helpers: {
+    hide_name: helpers.hide_name
+  }
+});
 
 
 
@@ -41,6 +46,7 @@ const sess = {
 
 
 app.use(clog);
+// app.use(helpers.hide_name);
 
 app.use(session(sess));
 
