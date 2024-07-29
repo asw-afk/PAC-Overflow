@@ -22,12 +22,12 @@ function addComment(addCommentBtn, event) {
     
     const post = addCommentBtn.closest(".post");
     const commentTextArea = post.querySelector("#text-comment").value.trim();
-    // const user_id = req.session.logged_in;
+    const user_id = post.dataset.userid;
     const post_id = post.dataset.postid;
 
 
     console.log("I'm printing whatever is in text_area");
-    // console.log(user_id);
+    console.log(`User: id: ${user_id}`);
     console.log(commentTextArea);
    console.log(`Post id: ${post_id}`)
 }
