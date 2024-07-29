@@ -42,7 +42,7 @@ router.get("/", async (req, res)=>{
     // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
     console.log(req.session.name);
-    res.render("post",{posts,user_name:req.session.name, logged_in: req.session.logged_in});
+    res.render("post",{posts,user:req.session, logged_in: req.session.logged_in});
 
 }catch(err){
     console.log(err);

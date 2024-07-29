@@ -1,13 +1,11 @@
 const post_list = document.querySelector(".posts-list");
-
-
 // Function that will handel showing the textarea to type comment
 function showCommentInput(commentBtn){
  // find out the exact post that the clicked button exist
  const post = commentBtn.closest(".post");
  // use the post to find out the exact target it area that need to change
  const comment_input_area = post.querySelector(".comment-input");
-
+console.log(userData)
  // if the class contain hidden class remove it otherwise add it
  if( comment_input_area.classList.contains('hidden')){
       comment_input_area.classList.remove("hidden");
@@ -69,6 +67,44 @@ function showCommentInput(commentBtn){
         expandComment.classList.add("hidden");
     }
  }
+ /// *********FUNCTION HANDLED VOTE UPDATE ***************************
+ const updateVote = async (action, event) => {
+
+  const voteUp = event.target.closest(".vote-up-btn");
+  const voteDown = event.target.closest(".vote-down-btn");
+  
+ const post = action.closest(".post");
+ let vote = post.querySelector('.vote').innerText;
+  const post_id = post.dataset.postid;
+ console.log(vote);
+ console.log(post_id);
+ if (action == voteUp ) {
+     console.log("you have clicked on voteUp"); 
+     vote++;
+
+ }else if (action == voteDown){
+   console.log("you have clicked on voteDown")  
+   vote--;
+ }
+
+   if (vote && post_id) {
+     const response = await fetch("/api/posts/post", {
+       method: "PATCH",
+       body: JSON.stringify({id: post_id,votes: vote}),
+       headers: {
+         "Content-Type": "application/json",
+       },
+     });
+     const data = await response.json();
+     if (response.ok) {
+       document.location.reload();
+     } else {
+       console.log(data);
+       alert("Failed to update vote");
+     }
+   }
+} 
+
 // event handler that will handel al click in the post handlebar
 post_list.addEventListener("click", (event)=>{
     console.log("You have clicked the button");
@@ -81,7 +117,8 @@ post_list.addEventListener("click", (event)=>{
 
    const addCommentBtn = event.target.closest(".add-comment");
     // if it is found
-
+const voteUp = event.target.closest(".vote-up-btn");
+const voteDown = event.target.closest(".vote-down-btn");
     if(commentBtn){
         // pass the button to the function
         showCommentInput(commentBtn)         
@@ -94,5 +131,13 @@ post_list.addEventListener("click", (event)=>{
     if (addCommentBtn){
         addComment(addCommentBtn)
     }
+
+    if(voteUp){
+      updateVote(voteUp, event)
+
+  }else if(voteDown) {
+      updateVote(voteDown, event);
+  }
+
 })
 
