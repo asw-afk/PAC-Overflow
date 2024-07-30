@@ -5,7 +5,7 @@ const logout = async () => {
     });
     
 if (response.ok) {
-   window.location.href = "/api/users/login"
+   window.location.href = "/"
 } else {
     alert(response.statusText);
 }
