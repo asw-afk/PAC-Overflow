@@ -3,7 +3,7 @@ posts-main">
 
         <div class=" col-9 posts-list ">
             {{#if logged_in}}
-          
+    
            <div class="post-btn w-100">             
          <button id="create-post" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Create Post</button>
 
@@ -38,11 +38,13 @@ posts-main">
 </div>                 
            </div> 
         {{/if}}
-        <h6>{{session.user_name}}</h6>
+        
+        <h1>{{user_name}}</h1>
+        <h1>{{logged_in}}</h1>
        {{#each posts as |post logged_in|}}
 
        {{!-- Here the post started  --}}
-
+                   
              <div  class="post  w-100" data-postid="{{post.id}}" data-userid="{{post.user.id}}">
                 <div>
 

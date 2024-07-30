@@ -59,7 +59,6 @@ router.post("/login", async (req, res) => {
     req.session.save(() => {
       req.session.id = userLoginInfo.id;
       req.session.name = userLoginInfo.name;
-      
       req.session.logged_in = true;
 
       console.log("This is the name of the user logged in");
@@ -68,9 +67,10 @@ router.post("/login", async (req, res) => {
       console.log(userLoginInfo);
 
       
-      res.json({ user: req.session, logged_in: req.session.logged_in,message: "You are now logged in!" });
-       
-       
+   const file =    res.json({user_name: req.session.name, logged_in: req.session.logged_in,message: "You are now logged in!" });
+        //  res.json({ user: req.session });
+        console.log("This is the file **************");
+       console.log(file);
       });
 
   } catch (err) {
@@ -90,8 +90,8 @@ router.get("/signup", (req, res)=>{
 // router.get("/post", (req, res)=>{
 //     res.render("post")
 // })
-router.get("/homepage", (req, res)=>{
-    res.render("homepage")
+router.get("/", (req, res)=>{
+    res.render("post",{user: req.session})
 })
 
 router.post('/logout', (req, res) => {

@@ -26,10 +26,10 @@
         </select>
 
         <a>Home</a>
-        <a>Post</a>
+        <a>Post</a> 
         <input class="nav-search" type="text" placeholder="Search.." />
         {{#if logged_in}}
-          <a class="loggedIn"></a>
+          <a class="loggedIn">{{user_name}}</a>
           <a   id="logout" href="/api/users/logout">logout</a>
         {{else}}
           <a id="nav-login" href="/api/users/login">Login</a>
@@ -37,11 +37,8 @@
       </header>
 
       <main class="container-fluid mt-5">
-        {{!-- {{#if logged_in}}
-        <button id="create-post" href="">Create Post</button>
-          {{else}}
-
-          {{/if}} --}}
+      
+        
 
         {{{body}}}
 
