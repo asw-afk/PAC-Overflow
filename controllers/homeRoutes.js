@@ -4,7 +4,7 @@ const Post = require("../models/Posts");
 const User= require("../models/User");
 const Comment = require("../models/Comment");
 
-router.get("", async (req, res)=>{
+router.get("/", async (req, res)=>{
    try{
        const postData = await Post.findAll({
            include:[
@@ -19,20 +19,16 @@ router.get("", async (req, res)=>{
                },           
            ],
        });  
-console.log("raw data");
-       console.log(postData);
+
         
    // Serialize data so the template can read it
    const posts = postData.map((post) => post.get({ plain: true }));
-   console.log('this data is clean *******************************************');
-   console.log(posts);
-   res.render("post",{posts, logged_in: req.session.logged_in});
+ 
+   res.render("post",{posts, user_name:req.session.name, logged_in: req.session.logged_in});
 
 }catch(err){
    console.log(err);
    res.status(500).json(err);
-
-
 }
 });
 

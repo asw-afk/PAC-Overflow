@@ -5,7 +5,6 @@ function showCommentInput(commentBtn){
  const post = commentBtn.closest(".post");
  // use the post to find out the exact target it area that need to change
  const comment_input_area = post.querySelector(".comment-input");
-console.log(userData)
  // if the class contain hidden class remove it otherwise add it
  if( comment_input_area.classList.contains('hidden')){
       comment_input_area.classList.remove("hidden");
