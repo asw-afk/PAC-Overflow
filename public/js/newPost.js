@@ -1,3 +1,4 @@
+import ("../../controllers/api/userApi")
 document.addEventListener('DOMContentLoaded', (event) => {
   const submitPostButton = document.querySelector("#submit-post");
 
@@ -14,18 +15,19 @@ const postFormHandler = async (event) => {
   const title = document.querySelector("#post-title").value.trim();
   const body = document.querySelector("#post-body").value.trim();
   const votes = 0;
+  const user_id = 1;
 
   if (title && body) {
     const response = await fetch("/api/posts/newPost", {
       method: "POST",
-      body: JSON.stringify({ title, body, votes }),
+      body: JSON.stringify({ title, body, votes,user_id }),
       headers: {
         "Content-Type": "application/json",
       },
     });
 
     if (response.ok) {
-      document.location.replace("/api/posts/");
+      document.location.replace("/");
     } else {
       alert("Failed to create post");
     }

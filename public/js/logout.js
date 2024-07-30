@@ -5,7 +5,7 @@ const logout = async () => {
     });
     
 if (response.ok) {
-    document.location.reload();
+   window.location.href = "/api/users/login"
 } else {
     alert(response.statusText);
 }
