@@ -8,18 +8,18 @@ router.get("/", async (req, res)=>{
    try{
        const postData = await Post.findAll({
            include:[
-
                {
                    model:User,
                    attributes:['id','name'],
                },      
                {
                    model:Comment,
-                   attributes:['id','body'],
+                   attributes:['user_id','body'],
                },           
            ],
        });  
 
+    
         
    // Serialize data so the template can read it
    const posts = postData.map((post) => post.get({ plain: true }));

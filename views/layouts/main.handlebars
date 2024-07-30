@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/login.css" />
     <link rel="stylesheet" href="/css/post.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
 
   </head>
 
@@ -20,17 +21,16 @@
       <header class="d-flex justify-content-between gp-2">
 
         <select id="dropdown">
-          <option value="forum1">forum 1</option>
-          <option value="forum2">forum 2</option>
-          <option value="forum3">forum 3</option>
+          <option value="forum1">General</option>
+          <option value="forum2">Help</option>
+          <option value="forum3">Suggestions</option>
         </select>
 
-        <a>Home</a>
-        <a>Post</a> 
+        <a href="/">Home</a> 
         <input class="nav-search" type="text" placeholder="Search.." />
         {{#if logged_in}}
           <a class="loggedIn">{{user_name}}</a>
-          <a   id="logout" href="/api/users/logout">logout</a>
+          <a   id="logout" href="/api/users/login">logout</a>
         {{else}}
           <a id="nav-login" href="/api/users/login">Login</a>
         {{/if}}
@@ -44,10 +44,9 @@
 
       </main>
     </div>
-
-    {{#if logged_in}}
-      <script src="/js/logout.js"></script>
-    {{/if}}
+<footer class="d-flex justify-content-between gp-2">
+     <h6>PAC-Overflow &copy 2024</h6>
+</footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/js/login.js"></script>
   </body>

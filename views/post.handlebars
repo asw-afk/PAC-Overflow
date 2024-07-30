@@ -1,4 +1,4 @@
-<div class="container-fluid d-flex  vh-100 
+<div class="container-fluid d-flex 
 posts-main">
 
         <div class=" col-9 posts-list ">
@@ -39,8 +39,7 @@ posts-main">
            </div> 
         {{/if}}
         
-        <h1>{{user_name}}</h1>
-        <h1>{{logged_in}}</h1>
+
        {{#each posts as |post logged_in|}}
 
        {{!-- Here the post started  --}}
@@ -99,7 +98,7 @@ posts-main">
          {{#each comments}}
             <div  class=" comment-box w-100" >
                 <div class="comment-section">
-                    <h3 class="author" id="authorId"><strike>{{id}}</strike></h3>
+                    <h3 class="author" id="authorId"><strike>{{user_id}}</strike></h3>
                     <p>{{body}}</p>
                 </div>
                   

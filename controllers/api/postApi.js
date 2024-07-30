@@ -10,7 +10,7 @@ router.post('/newPost', async (req,res) => {
         //create new post object from user input
     const newPost = await Post.create({
         title: req.body.title,
-        game: req.body.game,
+        // game: req.body.game,
         body: req.body.body,
         votes: req.body.votes,
         user_id:req.body.user_id

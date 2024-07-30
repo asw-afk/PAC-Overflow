@@ -1,9 +1,9 @@
 
 .posts-main {
-
   width: 100%;
   flex-direction: row;
   gap: 5px;
+  min-height: 100vh;
 }
 
 .posts-list {

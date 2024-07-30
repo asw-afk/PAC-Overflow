@@ -8,6 +8,7 @@
   .container-fluid{
     justify-content: center;
    
+   
    }
 
   /* body css */
@@ -37,19 +38,34 @@
 
      }
   }
-
-  /* for login link navigation */
-  #nav-login{
-    margin-left:10px;
-    margin-right:20px;
+/* 
+  footer{
+    position: relative;
+    text-align: center;
+    bottom: 0px;
+    height: 100px;
+    text-align: center;
+    color: white;
+    border-bottom-style: solid;
+    background: var(--dark);
   
-  }
-
-  #logout{
-    margin-left:10px;
-    margin-right:20px;
-  }
-
+    a{
+      color: white;
+      text-decoration: none;
+     }
+  }  */
+  footer {
+    background-color: #333;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    position: relative;
+    bottom: 0px;
+    height: 80px;
+    width: 100%;
+    margin-top:40px;
+}
+ 
 
 
   /* for search navigation  */
